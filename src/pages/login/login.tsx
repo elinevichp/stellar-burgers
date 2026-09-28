@@ -1,9 +1,10 @@
-import { LoginUI } from '@ui-pages';
-import { useClearFormOnOpen } from '@hooks/use-clear-form-on-open';
 import { clearAuthError, login, selectAuth } from '@slices/authSlice';
-import { useDispatch, useSelector } from '@services/store';
 import { Preloader } from '@ui';
+import { LoginUI } from '@ui-pages';
 import { type SyntheticEvent, useState } from 'react';
+
+import { useClearFormOnOpen } from '@hooks/use-clear-form-on-open';
+import { useDispatch, useSelector } from '@services/store';
 
 export const Login = (): React.JSX.Element => {
   const dispatch = useDispatch();

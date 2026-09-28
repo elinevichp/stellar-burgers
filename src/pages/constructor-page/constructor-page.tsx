@@ -4,9 +4,10 @@ import {
   selectIngredientsError,
   selectIngredientsLoading,
 } from '@slices/ingredientsSlice';
-import { useDispatch, useSelector } from '@services/store';
 import { Preloader } from '@ui';
 import { useEffect } from 'react';
+
+import { useDispatch, useSelector } from '@services/store';
 
 import styles from './constructor-page.module.css';
 

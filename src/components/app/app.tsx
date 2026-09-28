@@ -11,7 +11,6 @@ import {
   ResetPassword,
 } from '@pages';
 import { checkAuth, selectAuth } from '@slices/authSlice';
-import { useDispatch, useSelector } from '@services/store';
 import { Preloader } from '@ui';
 import { type ReactNode, useEffect } from 'react';
 import {
@@ -22,6 +21,8 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
+
+import { useDispatch, useSelector } from '@services/store';
 
 import type { Location } from 'react-router-dom';
 
@@ -41,10 +42,7 @@ const ProtectedRoute = ({
   if (onlyUnAuth && user) {
     const from = (location.state as { from?: Location } | null)?.from;
     return (
-      <Navigate
-        to={from ? `${from.pathname}${from.search}${from.hash}` : '/'}
-        replace
-      />
+      <Navigate to={from ? `${from.pathname}${from.search}${from.hash}` : '/'} replace />
     );
   }
   if (!onlyUnAuth && !user) {
@@ -118,7 +116,12 @@ const App = (): React.JSX.Element => {
           <Route
             path="/feed/:number"
             element={
-              <Modal title="" onClose={() => navigate(-1)}>
+              <Modal
+                title=""
+                onClose={() => {
+                  void navigate(-1);
+                }}
+              >
                 <OrderInfo />
               </Modal>
             }
@@ -126,7 +129,12 @@ const App = (): React.JSX.Element => {
           <Route
             path="/ingredients/:id"
             element={
-              <Modal title="Детали ингредиента" onClose={() => navigate(-1)}>
+              <Modal
+                title="Детали ингредиента"
+                onClose={() => {
+                  void navigate(-1);
+                }}
+              >
                 <IngredientDetails />
               </Modal>
             }
@@ -135,7 +143,12 @@ const App = (): React.JSX.Element => {
             <Route
               path="/profile/orders/:number"
               element={
-                <Modal title="" onClose={() => navigate(-1)}>
+                <Modal
+                  title=""
+                  onClose={() => {
+                    void navigate(-1);
+                  }}
+                >
                   <OrderInfo />
                 </Modal>
               }

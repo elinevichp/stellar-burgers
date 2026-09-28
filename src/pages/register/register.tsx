@@ -1,9 +1,10 @@
-import { RegisterUI } from '@ui-pages';
-import { useClearFormOnOpen } from '@hooks/use-clear-form-on-open';
 import { clearAuthError, register, selectAuth } from '@slices/authSlice';
-import { useDispatch, useSelector } from '@services/store';
 import { Preloader } from '@ui';
+import { RegisterUI } from '@ui-pages';
 import { type SyntheticEvent, useState } from 'react';
+
+import { useClearFormOnOpen } from '@hooks/use-clear-form-on-open';
+import { useDispatch, useSelector } from '@services/store';
 
 export const Register = (): React.JSX.Element => {
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ export const Register = (): React.JSX.Element => {
 
   return (
     <RegisterUI
-      errorText={registerError || ''}
+      errorText={registerError ?? ''}
       email={email}
       userName={userName}
       password={password}

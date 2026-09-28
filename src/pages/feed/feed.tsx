@@ -1,9 +1,10 @@
-import { FeedUI } from '@ui-pages';
 import { fetchFeed, selectFeed } from '@slices/feedSlice';
 import { fetchIngredients } from '@slices/ingredientsSlice';
-import { useDispatch, useSelector } from '@services/store';
 import { Preloader } from '@ui';
+import { FeedUI } from '@ui-pages';
 import { useEffect } from 'react';
+
+import { useDispatch, useSelector } from '@services/store';
 
 export const Feed = (): React.JSX.Element => {
   const dispatch = useDispatch();

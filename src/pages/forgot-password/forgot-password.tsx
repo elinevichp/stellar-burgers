@@ -1,14 +1,15 @@
-import { useClearFormOnOpen } from '@hooks/use-clear-form-on-open';
-import { ForgotPasswordUI } from '@ui-pages';
 import {
   clearPasswordResetErrors,
   sendResetEmail,
   selectPasswordReset,
 } from '@slices/passwordResetSlice';
-import { useDispatch, useSelector } from '@services/store';
 import { Preloader } from '@ui';
+import { ForgotPasswordUI } from '@ui-pages';
 import { useState, type SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { useClearFormOnOpen } from '@hooks/use-clear-form-on-open';
+import { useDispatch, useSelector } from '@services/store';
 
 export const ForgotPassword = (): React.JSX.Element => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ export const ForgotPassword = (): React.JSX.Element => {
 
   return (
     <ForgotPasswordUI
-      errorText={forgotError || undefined}
+      errorText={forgotError ?? undefined}
       email={email}
       setEmail={setEmail}
       handleSubmit={handleSubmit}

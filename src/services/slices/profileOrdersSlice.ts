@@ -1,6 +1,6 @@
+import { getOrdersApi } from '@api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getOrdersApi } from '@api';
 import type { RootState } from '../store';
 import type { TOrder } from '@utils-types';
 

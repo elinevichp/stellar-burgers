@@ -1,12 +1,13 @@
-import { Preloader, IngredientDetailsUI } from '@ui';
 import {
   fetchIngredients,
   selectIngredients,
   selectIngredientsError,
 } from '@slices/ingredientsSlice';
-import { useDispatch, useSelector } from '@services/store';
+import { Preloader, IngredientDetailsUI } from '@ui';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { useDispatch, useSelector } from '@services/store';
 
 export const IngredientDetails = (): React.JSX.Element => {
   const dispatch = useDispatch();
@@ -24,7 +25,9 @@ export const IngredientDetails = (): React.JSX.Element => {
     return !ingredients.length ? (
       <Preloader />
     ) : (
-      <h3 className="pb-6 text text_type_main-large">Страница не найдена. Ошибка 404.</h3>
+      <h3 className="pb-6 text text_type_main-large">
+        Страница не найдена. Ошибка 404.
+      </h3>
     );
   }
 

@@ -21,7 +21,13 @@ const constructorSlice = createSlice({
     },
     moveIngredient: (state, action: PayloadAction<{ from: number; to: number }>) => {
       const { from, to } = action.payload;
-      if (from < 0 || from >= state.ingredients.length || to < 0 || to >= state.ingredients.length) return;
+      if (
+        from < 0 ||
+        from >= state.ingredients.length ||
+        to < 0 ||
+        to >= state.ingredients.length
+      )
+        return;
       const [item] = state.ingredients.splice(from, 1);
       state.ingredients.splice(to, 0, item);
     },
@@ -29,7 +35,8 @@ const constructorSlice = createSlice({
   },
 });
 
-export const { addIngredient, removeIngredient, moveIngredient, clearConstructor } = constructorSlice.actions;
+export const { addIngredient, removeIngredient, moveIngredient, clearConstructor } =
+  constructorSlice.actions;
 export const selectConstructor = (state: RootState): TConstructorState =>
   state.burgerConstructor;
 

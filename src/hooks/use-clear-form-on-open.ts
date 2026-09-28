@@ -11,6 +11,6 @@ export const useClearFormOnOpen = (clearValues: () => void): void => {
 
     clearForm();
     window.addEventListener('pageshow', clearForm);
-    return () => window.removeEventListener('pageshow', clearForm);
+    return (): void => window.removeEventListener('pageshow', clearForm);
   }, []);
 };

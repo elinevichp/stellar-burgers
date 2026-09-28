@@ -1,7 +1,8 @@
-import { ProfileUI } from '@ui-pages';
 import { selectAuth, selectUser, updateUser } from '@slices/authSlice';
-import { useDispatch, useSelector } from '@services/store';
+import { ProfileUI } from '@ui-pages';
 import { type SyntheticEvent, useEffect, useState } from 'react';
+
+import { useDispatch, useSelector } from '@services/store';
 
 export const Profile = (): React.JSX.Element => {
   const user = useSelector(selectUser);
@@ -9,16 +10,16 @@ export const Profile = (): React.JSX.Element => {
   const dispatch = useDispatch();
 
   const [formValue, setFormValue] = useState({
-    name: user?.name || '',
-    email: user?.email || '',
+    name: user?.name ?? '',
+    email: user?.email ?? '',
     password: '',
   });
 
   useEffect(() => {
     setFormValue((prevState) => ({
       ...prevState,
-      name: user?.name || '',
-      email: user?.email || '',
+      name: user?.name ?? '',
+      email: user?.email ?? '',
     }));
   }, [user?.name, user?.email]);
 
@@ -49,8 +50,8 @@ export const Profile = (): React.JSX.Element => {
   const handleCancel = (e: SyntheticEvent): void => {
     e.preventDefault();
     setFormValue({
-      name: user?.name || '',
-      email: user?.email || '',
+      name: user?.name ?? '',
+      email: user?.email ?? '',
       password: '',
     });
   };
@@ -69,7 +70,7 @@ export const Profile = (): React.JSX.Element => {
       handleCancel={handleCancel}
       handleSubmit={handleSubmit}
       handleInputChange={handleInputChange}
-      updateUserError={updateUserError || undefined}
+      updateUserError={updateUserError ?? undefined}
     />
   );
 };

@@ -1,8 +1,9 @@
-import { BurgerIngredientUI } from '@ui';
 import { addIngredient } from '@slices/constructorSlice';
-import { useDispatch } from '@services/store';
+import { BurgerIngredientUI } from '@ui';
 import { memo } from 'react';
 import { useLocation } from 'react-router-dom';
+
+import { useDispatch } from '@services/store';
 
 import type { TBurgerIngredientProps } from './type';
 

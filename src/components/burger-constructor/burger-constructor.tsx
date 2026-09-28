@@ -1,12 +1,11 @@
-import { BurgerConstructorUI } from '@ui';
 import { selectUser } from '@slices/authSlice';
-import { selectConstructor } from '@slices/constructorSlice';
-import { clearConstructor } from '@slices/constructorSlice';
+import { selectConstructor, clearConstructor } from '@slices/constructorSlice';
 import { clearOrder, createOrder, selectOrder } from '@slices/orderSlice';
-import { useSelector } from '@services/store';
-import { useDispatch } from '@services/store';
+import { BurgerConstructorUI } from '@ui';
 import { useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+import { useSelector, useDispatch } from '@services/store';
 
 import type { TConstructorIngredient } from '@utils-types';
 

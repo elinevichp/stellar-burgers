@@ -25,7 +25,12 @@ export const RegisterUI = ({
   <main className={styles.container}>
     <div className={`pt-6 ${styles.wrapCenter}`}>
       <h3 className="pb-6 text text_type_main-medium">Регистрация</h3>
-      <form className={`pb-15 ${styles.form}`} name="register" autoComplete="off" onSubmit={handleSubmit}>
+      <form
+        className={`pb-15 ${styles.form}`}
+        name="register"
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         <>
           <div className="pb-6">
             <Input

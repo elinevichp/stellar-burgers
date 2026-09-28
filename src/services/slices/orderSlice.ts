@@ -1,8 +1,9 @@
+import { getOrderByNumberApi, orderBurgerApi } from '@api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getOrderByNumberApi, orderBurgerApi } from '@api';
 import { fetchFeed } from './feedSlice';
 import { fetchProfileOrders } from './profileOrdersSlice';
+
 import type { RootState } from '../store';
 import type { TOrder } from '@utils-types';
 
