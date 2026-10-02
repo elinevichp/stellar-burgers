@@ -68,13 +68,17 @@ test.describe('Конструктор бургера', () => {
     await expect(page.getByText('Краторная булка N-200i')).toBeVisible();
 
     await page.getByText('Краторная булка N-200i').click();
+
+    const modal = page.locator('#modals');
     await expect(
-      page.getByRole('heading', { name: 'Детали ингредиента' })
+      modal.getByRole('heading', { name: 'Детали ингредиента' })
     ).toBeVisible();
 
     await page.getByTestId('modal-overlay').click({ position: { x: 5, y: 5 } });
 
-    await expect(page.getByRole('heading', { name: 'Детали ингредиента' })).toBeHidden();
+    await expect(
+      modal.getByRole('heading', { name: 'Детали ингредиента' })
+    ).toBeHidden();
   });
 
   test('создаёт заказ, очищает конструктор и закрывает окно заказа', async ({
@@ -100,8 +104,10 @@ test.describe('Конструктор бургера', () => {
     await page.getByRole('button', { name: 'Оформить заказ' }).click();
 
     await expect(page.getByTestId('order-number')).toHaveText('123456');
-    await expect(page.getByText('Выберите булки')).toHaveCount(2);
-    await expect(page.getByText('Выберите начинку')).toBeVisible();
+
+    const constructor = page.getByTestId('constructor');
+    await expect(constructor.getByText('Выберите булки')).toHaveCount(2);
+    await expect(constructor.getByText('Выберите начинку')).toBeVisible();
 
     await page.getByRole('button', { name: 'Закрыть' }).click();
 
